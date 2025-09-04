@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwiftSites – Web Design Services</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Hero Section */
+    header {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 6rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #007BFF;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #bbb;
+      margin-bottom: 2rem;
+    }
+
+    .btn-main {
+      background: #007BFF;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn-main:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: #111;
+    }
+
+    /* About */
+    .about p {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-card h3 {
+      margin-bottom: 0.8rem;
+      color: #007BFF;
+    }
+
+    /* Portfolio */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .portfolio-item {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* Pricing */
+    .pricing-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .pricing-box p.price {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 1rem 0;
+      color: #28a745;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* Contact */
+    .contact p {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .btn.whatsapp {
+      background: #25D366;
+      color: #fff;
+    }
+
+    .btn.email {
+      background: #007BFF;
+      color: #fff;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #666;
+      background: #f1f1f1;
+      margin-top: 3rem;
+    }
+
+    /* Responsive Typography */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .pricing-box p.price {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 4rem 1rem;
+      }
+      header h1 {
+        font-size: 1.8rem;
+      }
+      header p {
+        font-size: 0.95rem;
+      }
+      section {
+        margin: 2rem auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header>
+    <h1>SwiftSites</h1>
+    <p>Fast, clean websites built with pure HTML & CSS</p>
+    <a href="#contact" class="btn-main">Start Your Project</a>
+  </header>
+
+  <!-- About -->
+  <section class="about">
+    <h2>About Us</h2>
+    <p>
+      At SwiftSites, we specialize in crafting professional websites with clean, efficient code. 
+      No bloated builders — just fast, responsive, and modern designs that help your business grow.
+    </p>
+  </section>
+
+  <!-- Services -->
+  <section class="services">
+    <h2>What We Offer</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Business Websites</h3>
+        <p>Give your brand a professional online presence.</p>
+      </div>
+      <div class="service-card">
+        <h3>Portfolios</h3>
+        <p>Showcase your skills and projects in style.</p>
+      </div>
+      <div class="service-card">
+        <h3>Landing Pages</h3>
+        <p>Convert visitors into customers with sleek designs.</p>
+      </div>
+      <div class="service-card">
+        <h3>Product Pages</h3>
+        <p>Highlight your products with clean, modern layouts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="portfolio">
+    <h2>Our Work</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">Sample Project 1</div>
+      <div class="portfolio-item">Sample Project 2</div>
+      <div class="project">
+  <h3><a href="https://greensilkhoney.netlify.app" target="_blank">Honey Business Website</a></h3>
+  <p>A premium product landing page built with HTML & CSS.</p>
+</div>
+
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing">
+    <h2>Pricing</h2>
+    <div class="pricing-box">
+      <p class="price">₦200,000</p>
+      <p>One website, one clear price. No hidden fees, just results.</p>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <h2>What Clients Say</h2>
+    <div class="testimonials">
+      <div class="testimonial">“SwiftSites built us a clean, professional site. Highly recommend!”</div>
+      <div class="testimonial">“Fast delivery, excellent service. Worth every naira.”</div>
+      <div class="testimonial">“My business now looks professional online thanks to SwiftSites.”</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+    <p>Let’s discuss your project today:</p>
+    <div class="contact-buttons">
+      <a href="https://wa.me/2347088880245" target="_blank" class="btn whatsapp">WhatsApp</a>
+      <a href="mailto:aliyuameen392@gmail.com" class="btn email">Email</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 SwiftSites – All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
