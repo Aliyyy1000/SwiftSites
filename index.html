@@ -1,160 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SwiftSites – Web Design Services</title>
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif;}
-    body {background:#f9f9f9; color:#333; line-height:1.6;}
-    header {background:#0f2a1d; color:white; text-align:center; padding:6rem 1rem;}
-    header h1 {font-size:2.5rem; margin-bottom:1rem; color:#d4af37;}
-    header p {font-size:1.1rem; color:#bbb; margin-bottom:2rem;}
-    .btn-main {background:#d4af37; color:#fff; padding:12px 24px; border-radius:6px; text-decoration:none; font-weight:600; transition:0.3s; display:inline-block;}
-    .btn-main:hover {background:#b9952f; transform:scale(1.05);}
-    section {max-width:1100px; margin:3rem auto; padding:0 1rem;}
-    h2 {text-align:center; margin-bottom:2rem; font-size:2rem; color:#0f2a1d;}
-    .about p {text-align:center; max-width:800px; margin:auto; font-size:1rem; color:#444;}
-    .services-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem;}
-    .service-card {background:white; padding:2rem; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.08); text-align:center; transition:transform 0.3s;}
-    .service-card:hover {transform:translateY(-5px);}
-    .service-card h3 {margin-bottom:0.8rem; color:#0f2a1d;}
-    .portfolio-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem;}
-    .portfolio-item {background:#fff; padding:1.5rem; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.08); text-align:center; font-weight:500;}
-    .portfolio-item img {width:100%; border-radius:8px; margin-bottom:10px;}
-    .pricing-box {background:white; padding:2rem; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; max-width:500px; margin:auto;}
-    .pricing-box p.price {font-size:2rem; font-weight:bold; margin:1rem 0; color:#28a745;}
-    .testimonials {display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem;}
-    .testimonial {background:#fff; padding:1.5rem; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.08); font-style:italic; text-align:center;}
-    .contact p {text-align:center; margin-bottom:1rem;}
-    .contact-buttons {display:flex; justify-content:center; flex-wrap:wrap; gap:1rem;}
-    .btn {display:inline-block; padding:12px 25px; border-radius:6px; text-decoration:none; font-weight:500; transition:0.3s; font-size:1rem; text-align:center;}
-    .btn.whatsapp {background:#25D366; color:#fff;}
-    .btn.email {background:#0f2a1d; color:#fff;}
-    .btn.instagram {background:#C13584; color:#fff;}
-    .btn:hover {opacity:0.9; transform:scale(1.05);}
-    footer {text-align:center; padding:1.5rem; font-size:0.9rem; color:#666; background:#f1f1f1; margin-top:3rem;}
-    @media(max-width:768px){header h1{font-size:2rem;} header p{font-size:1rem;} h2{font-size:1.5rem;} .pricing-box p.price{font-size:1.5rem;}}
-    @media(max-width:480px){header{padding:4rem 1rem;} header h1{font-size:1.8rem;} header p{font-size:0.95rem;} section{margin:2rem auto;}}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SwiftSites – Web Design Services</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+  body{
+    background:#070812;
+    color:#e9e9f7;
+    overflow-x:hidden;
+  }
+
+  /* ---- hero background ---- */
+  .hero{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:2rem;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:-20%;
+    background: radial-gradient(circle at 30% 20%, #3b6cff, transparent 50%),
+                radial-gradient(circle at 70% 30%, #8a4cff, transparent 55%),
+                radial-gradient(circle at 50% 80%, #ff2da6, transparent 60%);
+    filter: blur(40px);
+    opacity:0.9;
+  }
+
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0));
+    pointer-events:none;
+  }
+
+  .container{
+    position:relative;
+    z-index:2;
+    max-width:1100px;
+    width:100%;
+  }
+
+  .logo{
+    width:120px;
+    margin:0 auto 1rem;
+  }
+
+  h1{
+    font-size:3rem;
+    letter-spacing:1px;
+    margin-bottom:0.8rem;
+    text-shadow:0 8px 20px rgba(0,0,0,0.4);
+  }
+
+  p.subtitle{
+    font-size:1.1rem;
+    color:rgba(255,255,255,0.85);
+    max-width:700px;
+    margin:0 auto 2rem;
+  }
+
+  .btn-main{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:999px;
+    background: linear-gradient(90deg,#3b6cff,#8a4cff,#ff2da6);
+    color:#fff;
+    font-weight:700;
+    text-decoration:none;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    transition:transform .3s, filter .3s;
+  }
+
+  .btn-main:hover{
+    transform:translateY(-3px);
+    filter:brightness(1.1);
+  }
+
+  /* ---- glass cards ---- */
+  section{
+    max-width:1100px;
+    margin:4rem auto;
+    padding:0 1rem;
+  }
+
+  h2{
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:1.5rem;
+    position:relative;
+  }
+
+  h2::after{
+    content:"";
+    width:70px;
+    height:4px;
+    background:linear-gradient(90deg,#3b6cff,#8a4cff,#ff2da6);
+    display:block;
+    margin:0.7rem auto 0;
+    border-radius:999px;
+  }
+
+  .glass-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:1.5rem;
+  }
+
+  .glass{
+    background: rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:18px;
+    padding:2rem;
+    backdrop-filter: blur(10px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.35);
+    transition:transform .3s, border-color .3s;
+  }
+
+  .glass:hover{
+    transform:translateY(-6px);
+    border-color:rgba(255,255,255,0.35);
+  }
+
+  .glass h3{
+    margin-bottom:0.8rem;
+    font-size:1.3rem;
+    color:#fff;
+  }
+
+  .glass p{
+    color:rgba(255,255,255,0.75);
+  }
+
+  /* portfolio cards */
+  .portfolio-item img{
+    width:100%;
+    border-radius:14px;
+    margin-bottom:1rem;
+    border:1px solid rgba(255,255,255,0.2);
+  }
+
+  /* contact */
+  .contact-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:1rem;
+  }
+
+  .btn{
+    padding:14px 22px;
+    border-radius:999px;
+    font-weight:600;
+    text-decoration:none;
+    border:1px solid rgba(255,255,255,0.25);
+    transition:transform .3s, background .3s;
+  }
+
+  .btn:hover{
+    transform:translateY(-3px);
+  }
+
+  .whatsapp{background:#25D366;color:#fff;border:none;}
+  .email{background:rgba(255,255,255,0.06); color:#fff;}
+  .instagram{background:linear-gradient(90deg,#8a4cff,#ff2da6); color:#fff; border:none;}
+
+  footer{
+    text-align:center;
+    padding:1.5rem;
+    color:rgba(255,255,255,0.6);
+    margin-top:3rem;
+  }
+
+  @media(max-width:768px){
+    h1{font-size:2.4rem;}
+  }
+
+  @media(max-width:480px){
+    h1{font-size:2rem;}
+  }
+</style>
 </head>
 <body>
 
-  <!-- Hero -->
-  <header>
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <img src="A_vector-style_logo_for_a_web_development_company_.png" class="logo" alt="SwiftSites Logo">
     <h1>SwiftSites</h1>
-    <p>Fast, clean websites built with pure HTML & CSS</p>
+    <p class="subtitle">We build fast, modern websites from scratch — designed to match your brand and grow your business.</p>
     <a href="#contact" class="btn-main">Start Your Project</a>
-  </header>
+  </div>
+</header>
 
-  <!-- About -->
-  <section class="about">
-    <h2>About Us</h2>
-    <p>At SwiftSites, we specialize in crafting professional websites with clean, efficient code. No bloated builders — just fast, responsive, and modern designs that help your business grow.</p>
-  </section>
-
-  <!-- Services -->
-  <section class="services">
-    <h2>What We Offer</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>Business Websites</h3>
-        <p>Give your brand a professional online presence.</p>
-      </div>
-      <div class="service-card">
-        <h3>Portfolios</h3>
-        <p>Showcase your skills and projects in style.</p>
-      </div>
-      <div class="service-card">
-        <h3>Landing Pages</h3>
-        <p>Convert visitors into customers with sleek designs.</p>
-      </div>
-      <div class="service-card">
-        <h3>Product Pages</h3>
-        <p>Highlight your products with clean, modern layouts.</p>
-      </div>
-      <div class="service-card">
-        <h3>E-commerce Websites</h3>
-        <p>Sell your products online with a sleek, user-friendly design.</p>
-      </div>
-      <div class="service-card">
-        <h3>SEO Optimization</h3>
-        <p>Get found faster on Google and attract more visitors.</p>
-      </div>
-      <div class="service-card">
-        <h3>Website Maintenance</h3>
-        <p>Keep your website updated, secure, and performing at its best.</p>
-      </div>
-      <div class="service-card">
-        <h3>Digital Marketing</h3>
-        <p>Boost traffic and conversions through targeted online strategies.</p>
-      </div>
+<!-- ABOUT -->
+<section>
+  <h2>About SwiftSites</h2>
+  <div class="glass-grid">
+    <div class="glass">
+      <h3>Built from Scratch</h3>
+      <p>No templates. No builders. Just clean HTML & CSS with modern design.</p>
     </div>
-  </section>
-
-  <!-- Portfolio -->
-  <section class="portfolio">
-    <h2>Our Work</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <img src="project1.jpg" alt="Project 1" loading="lazy">
-        <h3><a href="#">Business Website Example</a></h3>
-        <p>Clean, professional site built for a corporate client.</p>
-      </div>
-      <div class="portfolio-item">
-        <img src="project2.jpg" alt="Project 2" loading="lazy">
-        <h3><a href="#">Portfolio Showcase</a></h3>
-        <p>Creative layout highlighting skills and projects.</p>
-      </div>
-      <div class="portfolio-item">
-        <img src="project3.jpg" alt="Project 3" loading="lazy">
-        <h3><a href="#">Landing Page Example</a></h3>
-        <p>Optimized for conversions with clear call-to-actions.</p>
-      </div>
-      <div class="portfolio-item">
-        <h3><a href="https://greensilkhoney.netlify.app" target="_blank">Honey Business Website</a></h3>
-        <p>A premium product landing page built with HTML & CSS.</p>
-      </div>
+    <div class="glass">
+      <h3>Fast & Responsive</h3>
+      <p>Websites that load fast and look perfect on mobile, tablet, and desktop.</p>
     </div>
-  </section>
-
-  <!-- Pricing -->
-  <section class="pricing">
-    <h2>Pricing</h2>
-    <div class="pricing-box">
-      <p class="price">₦200,000</p>
-      <p>One website, one clear price. No hidden fees, just results.</p>
+    <div class="glass">
+      <h3>Brand Focused</h3>
+      <p>We match your brand colors and style so your website feels like *you*.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Testimonials -->
-  <section class="testimonials-section">
-    <h2>What Clients Say</h2>
-    <div class="testimonials">
-      <div class="testimonial">“SwiftSites built us a clean, professional site. Highly recommend!”</div>
-      <div class="testimonial">“Fast delivery, excellent service. Worth every naira.”</div>
-      <div class="testimonial">“My business now looks professional online thanks to SwiftSites.”</div>
-      <div class="testimonial">“Excellent service, my website looks amazing!”</div>
-      <div class="testimonial">“Highly recommend SwiftSites for any professional website.”</div>
-      <div class="testimonial">“Fast, clean, and affordable. Great experience!”</div>
+<!-- SERVICES -->
+<section>
+  <h2>Services</h2>
+  <div class="glass-grid">
+    <div class="glass">
+      <h3>Business Websites</h3>
+      <p>Professional sites that build trust and attract clients.</p>
     </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <h2>Get in Touch</h2>
-    <p>Let’s discuss your project today:</p>
-    <div class="contact-buttons">
-      <a href="https://wa.me/2347088880245" target="_blank" class="btn whatsapp">WhatsApp</a>
-      <a href="mailto:aliyuameen392@gmail.com" class="btn email">Email</a>
-      <a href="https://instagram.com/yourhandle" target="_blank" class="btn instagram">Instagram</a>
+    <div class="glass">
+      <h3>Landing Pages</h3>
+      <p>High converting pages built for sales and growth.</p>
     </div>
-  </section>
+    <div class="glass">
+      <h3>E-commerce</h3>
+      <p>Sell products online with clean and easy-to-use design.</p>
+    </div>
+    <div class="glass">
+      <h3>Portfolio Sites</h3>
+      <p>Showcase your work in a modern, stylish layout.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 SwiftSites – All Rights Reserved</p>
-  </footer>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Get in Touch</h2>
+  <p style="text-align:center; color:rgba(255,255,255,0.75); margin-bottom:1rem;">
+    Ready to build your website? Send us a message.
+  </p>
+  <div class="contact-buttons">
+    <a href="https://wa.me/2347088880245" class="btn whatsapp">WhatsApp</a>
+    <a href="mailto:aliyuameen392@gmail.com" class="btn email">Email</a>
+    <a href="https://instagram.com/yourhandle" class="btn instagram">Instagram</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 SwiftSites – All Rights Reserved
+</footer>
 
 </body>
 </html>
